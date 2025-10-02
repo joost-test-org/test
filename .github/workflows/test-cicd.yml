@@ -50,5 +50,17 @@ jobs:
         run: |
           echo "Testing ${{ matrix.test-type }}..."
           echo "Testing finished."
+
+  deploy-tst:
+    name: Deploy on TST environment
+    runs-on: ubuntu-latest
+    needs: integration-test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy solution
+        run: |
+          echo "Deploying solution..."
+          echo "Deploy finished."
       
       
