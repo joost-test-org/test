@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Perform integration tests for ${{ matrix.test-type }}
+      - name: Perform tests ${{ matrix.test-type }}
         run: |
           echo "Testing ${{ matrix.test-type }}..."
           echo "Testing finished."
