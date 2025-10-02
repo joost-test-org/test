@@ -12,11 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      - name: Run a multi-line script
+      
+      - name: Build solution
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "Building solution..."
+          echo "Build finished."
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build solution
+        run: |
+          echo "Testing solution..."
+          echo "Test finished."
