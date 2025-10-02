@@ -8,7 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-unit-test:
+    name: Build and unit test solution
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,13 +19,21 @@ jobs:
           echo "Building solution..."
           echo "Build finished."
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Build solution
+      - name: Test solution
         run: |
           echo "Testing solution..."
           echo "Test finished."
+
+  deploy-dev:
+    name: Deploy on DEV environment
+    runs-on: ubuntu-latest
+    needs: build-and-unit-test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy solution
+        run: |
+          echo "Deploying solution..."
+          echo "Deploy finished."
+      
+      
