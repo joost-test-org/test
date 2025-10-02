@@ -35,5 +35,20 @@ jobs:
         run: |
           echo "Deploying solution..."
           echo "Deploy finished."
+
+  integration-test:
+    name: Perform integration tests
+    runs-on: ubuntu-latest
+    needs: deploy-dev
+    strategy:
+      matrix:
+        test-type: [API-X, API-Y, UI]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Perform integration tests for ${{ matrix.test-type }}
+        run: |
+          echo "Testing ${{ matrix.test-type }}..."
+          echo "Testing finished."
       
       
